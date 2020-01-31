@@ -1,4 +1,5 @@
-This is a simple roster browser. It was created using React. 
+#Roster Browser
+This is a simple roster browser. It was created using React with material-ui.
 
 To run the application, first install the dependencies with 
 ### `npm install`
@@ -22,3 +23,5 @@ You can also add notes for a player by using the textbox show below
 <img width="1532" alt="Screen Shot 2020-01-30 at 5 32 31 PM" src="https://user-images.githubusercontent.com/35980900/73496852-79b87880-4387-11ea-8b0b-942ebb72f1b6.png">
 
 Notes can be deleted by clicking the red button
+
+This app was tested using Google Chrome
