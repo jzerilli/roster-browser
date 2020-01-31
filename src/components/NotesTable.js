@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NoteItem from "./NoteItem";
-import PropTypes from "prop-types";
 
 class NotesTable extends Component {
   render() {

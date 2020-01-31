@@ -9,10 +9,11 @@ export default function Header() {
         color: "#fff",
         textAlign: "center",
         marginBottom: "10px",
-        fontFamily: "Arial"
+        fontFamily: "Arial",
+        padding: "1px"
       }}
     >
-      <h1>Roster Browser</h1>
+      <h1>Chicago Cubs Roster Browser</h1>
     </header>
   );
 }

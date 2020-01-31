@@ -18,6 +18,7 @@ class App extends Component {
     };
   }
 
+  //Update notes field after selecting a player
   handleClick(id) {
     this.setState({
       selected: id,
@@ -41,6 +42,7 @@ class App extends Component {
     });
   };
 
+
   addNote = content => {
     const newNote = {
       id: uuid.v4(),
@@ -51,8 +53,12 @@ class App extends Component {
       return curr_note.player_id === this.state.selected;
     });
 
+    //If the current player already has a note entry
+    //append to their list of notes
     if (curr_pnote) {
       curr_pnote.notes = [...curr_pnote.notes, newNote];
+
+    //Otherwise create a new note entry for the player
     } else {
       const newNoteListItem = {
         player_id: this.state.selected,
@@ -66,14 +72,13 @@ class App extends Component {
       });
     }
 
-    console.log(NOTES);
+    //Update notes to reflect the change
     this.setState({
       notes: curr_pnote
     });
   };
 
   render() {
-    const { players, selected, notes } = this.state;
     const curr_player = PlayerData.find(curr_obj => {
       return curr_obj.player_id_mlbam === this.state.selected;
     });
@@ -81,9 +86,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <SelectPlayer players={PlayerData} handler={this.handleClick} />
+        <SelectPlayer players={PlayerData.sort((a, b) => (a.lastname > b.lastname) ? 1 : -1)} handler={this.handleClick} />
 
-        {selected ? (
+        {this.state.selected ? (
           <React.Fragment>
             <PlayerTable player={curr_player} />
             <NoteInput addNote={this.addNote} />
@@ -97,16 +102,17 @@ class App extends Component {
   }
 }
 
+//Sample notes to pre load into list of notes
 var NOTES = [
   {
-    player_id: 573127,
+    player_id: 570489,
     notes: [
       { id: 1, content: "This is a sample note" },
       { id: 2, content: "Another sample note" }
     ]
   },
   {
-    player_id: 518748,
+    player_id: 453562,
     notes: [
       { id: 1, content: "Sample note for a different player" },
       { id: 2, content: "Another note for this player" }
