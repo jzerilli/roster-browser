@@ -1,4 +1,4 @@
-#Roster Browser
+# Roster Browser
 This is a simple roster browser. It was created using React with material-ui.
 
 To run the application, first install the dependencies with 
